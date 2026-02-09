@@ -1,26 +1,33 @@
 # Video Project Analyzer
 
-AI-powered project management extraction from meeting video recordings using Google Gemini.
+AI-powered project management and candidate skills extraction from meeting video recordings using Google Gemini.
 
 ## What is this?
 
-This repository contains structured project management analyses extracted from video meeting recordings. Using the `project_management` analysis mode of the [Instagram Video Analyzer MCP](https://github.com/Morfeu333/Video-Frame-Extraction-Utility), meeting recordings are processed by Google Gemini to automatically extract:
+This repository contains structured analyses extracted from video meeting recordings. Using the [Instagram Video Analyzer MCP](https://github.com/Morfeu333/instagram-video-analyzer-mcp), meeting recordings are processed by Google Gemini to automatically extract:
 
-- Decisions made (with timestamps and owners)
-- Action items / tasks (with responsible, priority, dependencies)
-- Technical requirements (with stack, complexity, type)
-- Architecture and infrastructure details
-- Risks and blockers
-- Business model and project scope
-- Next steps
-- Executive summary
+- **Project Management**: Decisions, action items, requirements, risks, architecture
+- **Candidate Skills**: Evidence-based technical proficiency scoring with source quotes
+- **Visual Analysis**: Scene-by-scene visual content description
+- **Transcription**: Timestamped audio transcription
 
 ## Analyses
 
+### Project Management & Visual
 | File | Meeting | Date | Duration |
 |------|---------|------|----------|
 | [PM Analysis](RCIS_Reuniao_INFRA_Saulo_2026-02-05_PM_Analysis.md) | RCIS Infra - Saulo | 2026-02-05 | 28min |
 | [Visual Analysis](RCIS_Reuniao_INFRA_Saulo_2026-02-05_Visual_Analysis.md) | RCIS Infra - Saulo | 2026-02-05 | 28min |
+
+### Vibecoder Candidate Profiles
+| File | Candidate | Date | Source Duration |
+|------|-----------|------|----------------|
+| [Gustavo Profile](Gustavo_Bezerra_Vibecoder_Profile_Analysis.md) | Gustavo Bezerra de Souza | 2026-02-09 | 1h40min |
+
+### Agent Designs
+| File | Description |
+|------|-------------|
+| [Skills Extraction Agent v1](Vibecoder_Skills_Extraction_Agent_v1.md) | Reusable agent prompt for extracting candidate skills from meetings |
 
 ## How it works
 
@@ -34,6 +41,7 @@ Meeting Video (.mp4) --> Gemini File API (upload) --> Gemini 2.5 Flash (analysis
 - `transcription` - Audio transcription with timestamps
 - `visual_description` - Visual content description
 - `project_management` - PM extraction (decisions, action items, requirements, risks, architecture)
+- `candidate_skills` - (Proposed) Vibecoder skills extraction from onboarding meetings
 
 ### Usage via MCP
 ```bash
